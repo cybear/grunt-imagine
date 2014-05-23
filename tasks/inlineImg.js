@@ -38,7 +38,7 @@ module.exports = function(grunt) {
                     try {
                         img = fs.readFileSync(inlineImgPath, 'base64');
                     } catch (err) {
-                        img = fs.readFileSync(base + '/' + path.basename(inlineImgPath), 'base64');
+                        img = fs.readFileSync(base + '/' + match[1], 'base64');
                     }
 
                     // replace file with bas64 data
