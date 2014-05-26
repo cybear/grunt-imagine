@@ -31,7 +31,13 @@ module.exports = function(grunt) {
                 inlineImgPath = imgPath.substr(0, imgPath.lastIndexOf('?'));
             }
             // make sure that were only importing images
-            if (path.extname(inlineImgPath) !== '.css') {
+            var imageExtension = path.extname(inlineImgPath);
+            if (imageExtension !== '.css' &&
+                imageExtension !== '.eot' &&
+                imageExtension !== '.otf' &&
+                imageExtension !== '.ttf' &&
+                imageExtension !== '.woff'
+            ) {
                 try {
                     // try to load the file without a given base path,
                     // if that doesn´t work, try with
